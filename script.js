@@ -1,44 +1,108 @@
-const API_URL = https://story-forge-ai-backend.onrender.com/
+/* =====================================================
+   WELCOME ANIMATION
+
+   Sequence:
+
+   1. Boy is visible immediately.
+   2. Boy moves across the screen.
+   3. Boy stops.
+   4. Boy waves.
+   5. Bike reveals itself.
+   6. Welcome message appears.
+   7. Enter button appears.
+===================================================== */
 
 
-// =====================================================
-// SCREEN MANAGEMENT
-// =====================================================
+const boy = document.getElementById("boy");
 
-function showScreen(screenId) {
+const bike = document.getElementById("future-bike");
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(screen => {
+const wavingArm = document.getElementById("waving-arm");
 
-            screen.classList.add("hidden");
+const greeting = document.getElementById("greeting");
 
-        });
+const enterButton = document.getElementById("enter-button");
 
 
-    document
-        .getElementById(screenId)
-        .classList.remove("hidden");
+/*
 
-}
+    The CSS animation lasts 9 seconds for the boy.
 
+    The boy reaches his stopping point at
+    approximately 65% of 9 seconds.
 
-// =====================================================
-// WELCOME → AUTHENTICATION
-// =====================================================
+    That is approximately 5.85 seconds.
 
-document
-    .getElementById("enter-button")
-    .addEventListener("click", () => {
-
-        showScreen("auth-screen");
-
-    });
+*/
 
 
-// =====================================================
-// AUTHENTICATION TABS
-// =====================================================
+setTimeout(() => {
+
+    /*
+        The boy has stopped.
+
+        Now he waves.
+    */
+
+    wavingArm.classList.add("wave-animation");
+
+}, 6000);
+
+
+setTimeout(() => {
+
+    /*
+        The bike now reveals itself.
+
+        It was completely invisible
+        while the boy was moving.
+    */
+
+    bike.classList.add("bike-reveal");
+
+}, 7000);
+
+
+setTimeout(() => {
+
+    greeting.classList.remove("hidden");
+
+}, 8500);
+
+
+setTimeout(() => {
+
+    enterButton.classList.remove("hidden");
+
+}, 10000);
+
+
+/* =====================================================
+   ENTER THE FORGE
+===================================================== */
+
+enterButton.addEventListener(
+    "click",
+    () => {
+
+        document
+            .getElementById("welcome-screen")
+            .classList
+            .add("hidden");
+
+
+        document
+            .getElementById("auth-screen")
+            .classList
+            .remove("hidden");
+
+    }
+);
+
+
+/* =====================================================
+   LOGIN / SIGN UP TABS
+===================================================== */
 
 const loginTab =
     document.getElementById("login-tab");
@@ -53,242 +117,320 @@ const signupForm =
     document.getElementById("signup-form");
 
 
-loginTab.addEventListener("click", () => {
+loginTab.addEventListener(
+    "click",
+    () => {
 
-    loginTab.classList.add("active-tab");
+        loginTab.classList.add("active");
 
-    signupTab.classList.remove("active-tab");
+        signupTab.classList.remove("active");
 
-    loginForm.classList.remove("hidden");
+        loginForm.classList.remove("hidden");
 
-    signupForm.classList.add("hidden");
-
-});
-
-
-signupTab.addEventListener("click", () => {
-
-    signupTab.classList.add("active-tab");
-
-    loginTab.classList.remove("active-tab");
-
-    signupForm.classList.remove("hidden");
-
-    loginForm.classList.add("hidden");
-
-});
-
-
-// =====================================================
-// LOGIN
-// =====================================================
-
-loginForm.addEventListener("submit", async event => {
-
-    event.preventDefault();
-
-
-    const username =
-        document.getElementById(
-            "login-username"
-        ).value;
-
-
-    const password =
-        document.getElementById(
-            "login-password"
-        ).value;
-
-
-    try {
-
-        const response =
-            await fetch(
-                `${API_URL}/login`,
-                {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        username,
-                        password
-
-                    })
-
-                }
-
-            );
-
-
-        const data =
-            await response.json();
-
-
-        if (data.success) {
-
-            showScreen("dashboard-screen");
-
-        }
-
-        else {
-
-            showAuthMessage(
-                data.error
-            );
-
-        }
+        signupForm.classList.add("hidden");
 
     }
+);
 
-    catch (error) {
 
-        showAuthMessage(
-            "Unable to connect to the backend."
-        );
+signupTab.addEventListener(
+    "click",
+    () => {
+
+        signupTab.classList.add("active");
+
+        loginTab.classList.remove("active");
+
+        signupForm.classList.remove("hidden");
+
+        loginForm.classList.add("hidden");
 
     }
-
-});
-
-
-// =====================================================
-// SIGNUP
-// =====================================================
-
-signupForm.addEventListener("submit", async event => {
-
-    event.preventDefault();
+);
 
 
-    const username =
-        document.getElementById(
-            "signup-username"
-        ).value;
+/* =====================================================
+   API URL
+
+   We will replace this with your actual Render
+   backend URL when we connect the frontend.
+===================================================== */
 
 
-    const email =
-        document.getElementById(
-            "signup-email"
-        ).value;
+const API_URL =
+    "https://YOUR-RENDER-BACKEND-URL.onrender.com";
 
 
-    const password =
-        document.getElementById(
-            "signup-password"
-        ).value;
+/* =====================================================
+   LOGIN
+===================================================== */
+
+loginForm.addEventListener(
+    "submit",
+    async (event) => {
+
+        event.preventDefault();
 
 
-    try {
-
-        const response =
-            await fetch(
-                `${API_URL}/signup`,
-                {
-
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type":
-                            "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        username,
-                        email,
-                        password
-
-                    })
-
-                }
-
-            );
+        const username =
+            document
+                .getElementById("login-username")
+                .value;
 
 
-        const data =
-            await response.json();
+        const password =
+            document
+                .getElementById("login-password")
+                .value;
 
 
-        if (data.success) {
+        const message =
+            document
+                .getElementById("auth-message");
 
-            showAuthMessage(
-                "Account created successfully. You can now log in."
-            );
 
-            loginTab.click();
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/login`,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            username,
+
+                            password
+
+                        })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+
+                message.textContent =
+                    result.error ||
+                    "Login failed.";
+
+                return;
+
+            }
+
+
+            openDashboard();
 
         }
 
-        else {
+        catch (error) {
 
-            showAuthMessage(
-                data.error
-            );
+            message.textContent =
+                "Unable to connect to server.";
+
+            console.error(error);
 
         }
 
     }
+);
 
-    catch (error) {
 
-        showAuthMessage(
-            "Unable to connect to the backend."
-        );
+/* =====================================================
+   SIGN UP
+===================================================== */
+
+signupForm.addEventListener(
+    "submit",
+    async (event) => {
+
+        event.preventDefault();
+
+
+        const username =
+            document
+                .getElementById("signup-username")
+                .value;
+
+
+        const email =
+            document
+                .getElementById("signup-email")
+                .value;
+
+
+        const password =
+            document
+                .getElementById("signup-password")
+                .value;
+
+
+        const message =
+            document
+                .getElementById("auth-message");
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/signup`,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            username,
+
+                            email,
+
+                            password
+
+                        })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!result.success) {
+
+                message.textContent =
+                    result.error ||
+                    "Signup failed.";
+
+                return;
+
+            }
+
+
+            openDashboard();
+
+        }
+
+        catch (error) {
+
+            message.textContent =
+                "Unable to connect to server.";
+
+            console.error(error);
+
+        }
 
     }
+);
 
-});
 
+/* =====================================================
+   OPEN DASHBOARD
+===================================================== */
 
-function showAuthMessage(message) {
+function openDashboard() {
 
     document
-        .getElementById("auth-message")
-        .textContent = message;
+        .getElementById("auth-screen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("dashboard-screen")
+        .classList
+        .remove("hidden");
 
 }
 
 
-// =====================================================
-// CREATE MOVIE
-// =====================================================
-
-document
-    .getElementById("create-movie-button")
-    .addEventListener("click", () => {
-
-        showScreen("create-screen");
-
-    });
-
-
-// =====================================================
-// BACK TO DASHBOARD
-// =====================================================
-
-document
-    .getElementById("back-dashboard")
-    .addEventListener("click", () => {
-
-        showScreen("dashboard-screen");
-
-    });
-
-
-// =====================================================
-// LOGOUT
-// =====================================================
+/* =====================================================
+   LOGOUT
+===================================================== */
 
 document
     .getElementById("logout-button")
-    .addEventListener("click", () => {
+    .addEventListener(
+        "click",
+        () => {
 
-        showScreen("auth-screen");
+            document
+                .getElementById("dashboard-screen")
+                .classList
+                .add("hidden");
 
-    });
+
+            document
+                .getElementById("welcome-screen")
+                .classList
+                .remove("hidden");
+
+        }
+    );
+
+
+/* =====================================================
+   CREATE MOVIE
+===================================================== */
+
+document
+    .getElementById("create-movie-button")
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById("dashboard-screen")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("create-screen")
+                .classList
+                .remove("hidden");
+
+        }
+    );
+
+
+/* =====================================================
+   BACK TO DASHBOARD
+===================================================== */
+
+document
+    .getElementById("back-dashboard")
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById("create-screen")
+                .classList
+                .add("hidden");
+
+
+            document
+                .getElementById("dashboard-screen")
+                .classList
+                .remove("hidden");
+
+        }
+    );
