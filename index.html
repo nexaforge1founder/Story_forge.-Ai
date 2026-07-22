@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Story Forge.AI</title>
 
@@ -15,317 +11,282 @@
 
 <body>
 
-    <!-- =====================================================
-         WELCOME SCREEN
-    ====================================================== -->
+    <!-- CINEMATIC WELCOME SCREEN -->
+    <section id="welcomeScreen" class="screen welcome-screen">
 
-    <section
-        id="welcome-screen"
-        class="screen"
-    >
+        <div class="cinematic-sky"></div>
 
-        <!-- Background -->
+        <div class="moon"></div>
 
-        <div class="sky">
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
 
-            <div class="stars"></div>
+        <div class="forest forest-left"></div>
+        <div class="forest forest-right"></div>
 
-            <div class="moon"></div>
+        <div class="future-city">
+            <div class="tower tower-one"></div>
+            <div class="tower tower-two"></div>
+            <div class="tower tower-three"></div>
+            <div class="tower tower-four"></div>
+        </div>
 
-            <div class="purple-atmosphere"></div>
+        <div class="road">
+            <div class="road-light"></div>
+        </div>
+
+        <!-- CINEMATIC TITLE -->
+        <div class="falling-title" id="fallingTitle">
+            <span>WELCOME TO</span>
+            <strong>STORY FORGE<span>.AI</span></strong>
+        </div>
+
+        <!-- HUMAN CHARACTER -->
+        <div class="character" id="character">
+
+            <div class="character-shadow"></div>
+
+            <div class="head">
+                <div class="hair"></div>
+                <div class="face">
+                    <div class="eye eye-left"></div>
+                    <div class="eye eye-right"></div>
+                    <div class="nose"></div>
+                    <div class="mouth"></div>
+                </div>
+            </div>
+
+            <div class="neck"></div>
+
+            <div class="body">
+                <div class="jacket"></div>
+                <div class="chest-light"></div>
+            </div>
+
+            <div class="arm arm-left">
+                <div class="hand"></div>
+            </div>
+
+            <div class="arm arm-right">
+                <div class="hand"></div>
+            </div>
+
+            <div class="leg leg-left"></div>
+            <div class="leg leg-right"></div>
+
+            <div class="shoe shoe-left"></div>
+            <div class="shoe shoe-right"></div>
 
         </div>
 
+        <!-- FUTURISTIC BIKE -->
+        <div class="tech-bike" id="techBike">
 
-        <!-- Brand -->
+            <div class="bike-energy"></div>
 
-        <div class="welcome-brand">
+            <div class="bike-body">
+                <div class="bike-core"></div>
+                <div class="bike-seat"></div>
+                <div class="bike-front"></div>
+                <div class="bike-back"></div>
+            </div>
 
-            <h1>
-                STORY
-                <span>FORGE</span>
-                <small>.AI</small>
-            </h1>
+            <div class="bike-wheel bike-wheel-front"></div>
+            <div class="bike-wheel bike-wheel-back"></div>
 
-            <p>
-                Every story has a world waiting to be created.
+            <div class="bike-light"></div>
+
+        </div>
+
+        <!-- WAVE MESSAGE -->
+        <div class="wave-message" id="waveMessage">
+            <span>WELCOME, CREATOR</span>
+        </div>
+
+        <!-- MAIN ENTRY -->
+        <div class="forge-entry">
+
+            <button class="fang-button" id="enterForgeButton">
+
+                <span class="fang fang-left"></span>
+
+                <span class="fang-mouth-text">
+                    ENTER THE FORGE
+                </span>
+
+                <span class="fang fang-right"></span>
+
+            </button>
+
+            <p class="entry-subtitle">
+                Turn stories into worlds.
             </p>
 
         </div>
 
-
-        <!-- Cinematic world -->
-
-        <div class="world">
-
-            <div class="mountain mountain-left"></div>
-
-            <div class="mountain mountain-right"></div>
-
-            <div class="ground"></div>
-
-            <div class="road">
-
-                <div class="road-line"></div>
-
-            </div>
-
-
-            <!-- =================================================
-                 BOY
-
-                 IMPORTANT:
-                 The boy is visible from the beginning.
-                 The bike is NOT attached visually to him.
-            ================================================== -->
-
-            <div
-                id="boy"
-                class="boy"
-            >
-
-                <div class="hair"></div>
-
-                <div class="head">
-
-                    <div class="eye eye-left"></div>
-
-                    <div class="eye eye-right"></div>
-
-                </div>
-
-
-                <div class="neck"></div>
-
-                <div class="body"></div>
-
-
-                <div class="arm arm-left"></div>
-
-                <div
-                    id="waving-arm"
-                    class="arm arm-right"
-                ></div>
-
-
-                <div class="leg leg-left"></div>
-
-                <div class="leg leg-right"></div>
-
-            </div>
-
-
-            <!-- =================================================
-                 FUTURISTIC TECH BIKE
-
-                 It starts completely invisible.
-
-                 It is NOT visible while the boy is moving.
-
-                 It reveals only after the boy stops and waves.
-            ================================================== -->
-
-            <div
-                id="future-bike"
-                class="future-bike"
-            >
-
-                <div class="bike-energy-field"></div>
-
-                <div class="bike-wheel rear-wheel">
-
-                    <div class="wheel-core"></div>
-
-                </div>
-
-
-                <div class="bike-wheel front-wheel">
-
-                    <div class="wheel-core"></div>
-
-                </div>
-
-
-                <div class="bike-frame"></div>
-
-                <div class="bike-lower-frame"></div>
-
-                <div class="bike-energy-core"></div>
-
-                <div class="bike-seat"></div>
-
-                <div class="bike-handlebars"></div>
-
-                <div class="bike-front-fork"></div>
-
-                <div class="bike-headlight"></div>
-
-                <div class="bike-hologram"></div>
-
-            </div>
-
-
-            <!-- Greeting -->
-
-            <div
-                id="greeting"
-                class="greeting hidden"
-            >
-
-                <div class="wave-hand">
-                    👋
-                </div>
-
-                <h2>
-                    Welcome to Story Forge.AI
-                </h2>
-
-                <p>
-                    Your story is waiting.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- Enter button -->
-
-        <button
-            id="enter-button"
-            class="enter-button hidden"
-        >
-            ENTER THE FORGE
-        </button>
-
     </section>
 
 
-    <!-- =====================================================
-         AUTHENTICATION SCREEN
-    ====================================================== -->
+    <!-- AUTHENTICATION SCREEN -->
+    <section id="authScreen" class="screen auth-screen hidden">
 
-    <section
-        id="auth-screen"
-        class="screen hidden"
-    >
+        <div class="auth-background"></div>
+
+        <button class="back-button" id="backToWelcome">
+            ← BACK TO THE FORGE
+        </button>
 
         <div class="auth-container">
 
             <div class="auth-brand">
-
-                <h1>
-                    STORY
-                    <span>FORGE</span>
-                    <small>.AI</small>
-                </h1>
-
-                <p>
-                    Enter the world where stories become cinema.
-                </p>
-
+                <span>STORY</span>
+                <strong>FORGE<span>.AI</span></strong>
             </div>
 
+            <!-- LOGIN -->
+            <div id="loginPanel" class="auth-panel">
 
-            <div class="auth-box">
+                <h1>Enter the Forge</h1>
 
-                <div class="auth-tabs">
+                <p class="auth-description">
+                    Continue building your world.
+                </p>
 
-                    <button
-                        id="login-tab"
-                        class="auth-tab active"
-                    >
+                <form id="loginForm">
+
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <input
+                            type="text"
+                            id="loginUsername"
+                            placeholder="Enter your username"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label>PASSWORD</label>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="auth-button">
                         LOGIN
-                    </button>
-
-                    <button
-                        id="signup-tab"
-                        class="auth-tab"
-                    >
-                        SIGN UP
-                    </button>
-
-                </div>
-
-
-                <!-- LOGIN -->
-
-                <form
-                    id="login-form"
-                    class="auth-form"
-                >
-
-                    <input
-                        id="login-username"
-                        type="text"
-                        placeholder="Username"
-                        required
-                    >
-
-
-                    <input
-                        id="login-password"
-                        type="password"
-                        placeholder="Password"
-                        required
-                    >
-
-
-                    <button
-                        type="submit"
-                        class="purple-button"
-                    >
-                        ENTER THE FORGE
                     </button>
 
                 </form>
 
+                <button class="text-button" id="forgotPasswordButton">
+                    Forgot password?
+                </button>
 
-                <!-- SIGN UP -->
+                <p class="switch-auth">
+                    New creator?
+                    <button id="showSignupButton">
+                        Create an account
+                    </button>
+                </p>
 
-                <form
-                    id="signup-form"
-                    class="auth-form hidden"
-                >
+                <div id="loginMessage" class="auth-message"></div>
 
-                    <input
-                        id="signup-username"
-                        type="text"
-                        placeholder="Username"
-                        required
-                    >
-
-
-                    <input
-                        id="signup-email"
-                        type="email"
-                        placeholder="Email"
-                        required
-                    >
+            </div>
 
 
-                    <input
-                        id="signup-password"
-                        type="password"
-                        placeholder="Password"
-                        required
-                    >
+            <!-- SIGNUP -->
+            <div id="signupPanel" class="auth-panel hidden">
 
+                <h1>Create Your Forge</h1>
 
-                    <button
-                        type="submit"
-                        class="purple-button"
-                    >
+                <p class="auth-description">
+                    Begin building your cinematic universe.
+                </p>
+
+                <form id="signupForm">
+
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <input
+                            type="text"
+                            id="signupUsername"
+                            placeholder="Choose a username"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label>EMAIL</label>
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label>PASSWORD</label>
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a password"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="auth-button">
                         CREATE ACCOUNT
                     </button>
 
                 </form>
 
+                <p class="switch-auth">
+                    Already have an account?
+                    <button id="showLoginButton">
+                        Login
+                    </button>
+                </p>
 
-                <p
-                    id="auth-message"
-                    class="auth-message"
-                ></p>
+                <div id="signupMessage" class="auth-message"></div>
+
+            </div>
+
+
+            <!-- FORGOT PASSWORD -->
+            <div id="forgotPanel" class="auth-panel hidden">
+
+                <h1>Recover Your Forge</h1>
+
+                <p class="auth-description">
+                    Enter your email to begin password recovery.
+                </p>
+
+                <form id="forgotForm">
+
+                    <div class="input-group">
+                        <label>EMAIL</label>
+                        <input
+                            type="email"
+                            id="forgotEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="auth-button">
+                        REQUEST RESET
+                    </button>
+
+                </form>
+
+                <button class="text-button" id="backToLoginButton">
+                    Return to login
+                </button>
+
+                <div id="forgotMessage" class="auth-message"></div>
 
             </div>
 
@@ -334,308 +295,76 @@
     </section>
 
 
-    <!-- =====================================================
-         DASHBOARD
-    ====================================================== -->
+    <!-- DASHBOARD PLACEHOLDER -->
+    <section id="dashboardScreen" class="screen dashboard-screen hidden">
 
-    <section
-        id="dashboard-screen"
-        class="screen hidden"
-    >
+        <nav class="dashboard-nav">
 
-        <aside class="sidebar">
-
-            <div class="sidebar-logo">
-
-                STORY
-                <span>FORGE</span>
-                <small>.AI</small>
-
+            <div class="dashboard-logo">
+                STORY FORGE<span>.AI</span>
             </div>
 
-
-            <nav>
-
-                <button class="nav-item active">
-                    🎬 Dashboard
-                </button>
-
-                <button class="nav-item">
-                    📚 My Stories
-                </button>
-
-                <button class="nav-item">
-                    🎞 My Movies
-                </button>
-
-                <button class="nav-item">
-                    🧠 Memory
-                </button>
-
-                <button class="nav-item">
-                    🎧 Audio
-                </button>
-
-                <button class="nav-item">
-                    ⚙ Settings
-                </button>
-
-            </nav>
-
-
-            <button
-                id="logout-button"
-                class="logout-button"
-            >
+            <button id="logoutButton" class="logout-button">
                 LOG OUT
             </button>
 
-        </aside>
+        </nav>
 
+        <main class="dashboard-content">
 
-        <main class="dashboard-main">
+            <div class="dashboard-heading">
+                <p class="dashboard-label">
+                    CREATOR'S FORGE
+                </p>
 
-            <header class="dashboard-header">
+                <h1>
+                    What will you create?
+                </h1>
 
-                <div>
+                <p>
+                    Your stories are waiting to become worlds.
+                </p>
+            </div>
 
-                    <span class="gold-label">
-                        STORY FORGE.AI
-                    </span>
+            <button class="create-movie-button">
 
-                    <h1>
-                        Welcome back, Founder.
-                    </h1>
+                <span class="create-fang"></span>
 
-                </div>
+                <span>
+                    CREATE MOVIE
+                </span>
 
-
-                <div class="profile-circle">
-                    F
-                </div>
-
-            </header>
-
-
-            <section class="dashboard-hero">
-
-                <div class="hero-text">
-
-                    <span class="gold-label">
-                        THE FORGE IS READY
-                    </span>
-
-                    <h2>
-                        Turn your imagination
-                        <span>into cinema.</span>
-                    </h2>
-
-                    <p>
-                        Build stories, characters, worlds and cinematic
-                        productions from your imagination.
-                    </p>
-
-                </div>
-
-
-                <!-- Fang mouth create button -->
-
-                <button
-                    id="create-movie-button"
-                    class="fang-mouth-button"
-                >
-
-                    <span class="fang top-left">
-                        ▼
-                    </span>
-
-                    <span class="fang top-right">
-                        ▼
-                    </span>
-
-                    <span class="fang bottom-left">
-                        ▲
-                    </span>
-
-                    <span class="fang bottom-right">
-                        ▲
-                    </span>
-
-                    <span class="mouth-text">
-                        CREATE
-                        <br>
-                        MOVIE
-                    </span>
-
-                </button>
-
-            </section>
-
-
-            <section class="dashboard-cards">
-
-                <div class="dashboard-card">
-
-                    <div class="card-icon">
-                        🎬
-                    </div>
-
-                    <h3>
-                        Create Movie
-                    </h3>
-
-                    <p>
-                        Transform your story into a cinematic production.
-                    </p>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <div class="card-icon">
-                        🧠
-                    </div>
-
-                    <h3>
-                        Story Memory
-                    </h3>
-
-                    <p>
-                        Characters, creatures, scenes and worlds.
-                    </p>
-
-                </div>
-
-
-                <div class="dashboard-card">
-
-                    <div class="card-icon">
-                        🎧
-                    </div>
-
-                    <h3>
-                        Audio Forge
-                    </h3>
-
-                    <p>
-                        Manage music, voices and audio assets.
-                    </p>
-
-                </div>
-
-            </section>
-
-        </main>
-
-    </section>
-
-
-    <!-- =====================================================
-         CREATE MOVIE SCREEN
-    ====================================================== -->
-
-    <section
-        id="create-screen"
-        class="screen hidden"
-    >
-
-        <div class="create-container">
-
-            <button
-                id="back-dashboard"
-                class="back-button"
-            >
-                ← BACK TO DASHBOARD
             </button>
 
+            <div class="dashboard-cards">
 
-            <h1>
-                CREATE YOUR MOVIE
-            </h1>
+                <div class="dashboard-card">
+                    <span class="card-icon">✦</span>
+                    <h3>Stories</h3>
+                    <p>Build and manage your cinematic stories.</p>
+                </div>
 
-            <p>
-                Give your story to the forge.
-            </p>
+                <div class="dashboard-card">
+                    <span class="card-icon">◈</span>
+                    <h3>Characters</h3>
+                    <p>Manage your characters and creatures.</p>
+                </div>
 
+                <div class="dashboard-card">
+                    <span class="card-icon">♫</span>
+                    <h3>Audio</h3>
+                    <p>Manage music, voices, and sound assets.</p>
+                </div>
 
-            <textarea
-                id="story-input"
-                placeholder="Write or paste your story here..."
-            ></textarea>
-
-
-            <div class="creation-options">
-
-                <select id="genre-select">
-
-                    <option value="realistic">
-                        Realistic
-                    </option>
-
-                    <option value="fantasy">
-                        Fantasy
-                    </option>
-
-                    <option value="sci_fi">
-                        Sci-Fi
-                    </option>
-
-                </select>
-
-
-                <select id="language-select">
-
-                    <option value="english">
-                        English
-                    </option>
-
-                    <option value="chinese">
-                        Chinese
-                    </option>
-
-                    <option value="korean">
-                        Korean
-                    </option>
-
-                    <option value="japanese">
-                        Japanese
-                    </option>
-
-                </select>
+                <div class="dashboard-card">
+                    <span class="card-icon">◉</span>
+                    <h3>Memory</h3>
+                    <p>Your Story Forge.AI creative memory.</p>
+                </div>
 
             </div>
 
-
-            <button
-                class="fang-mouth-button forge-button"
-            >
-
-                <span class="fang top-left">
-                    ▼
-                </span>
-
-                <span class="fang top-right">
-                    ▼
-                </span>
-
-                <span class="fang bottom-left">
-                    ▲
-                </span>
-
-                <span class="fang bottom-right">
-                    ▲
-                </span>
-
-                <span class="mouth-text">
-                    FORGE
-                    <br>
-                    MOVIE
-                </span>
-
-            </button>
-
-        </div>
+        </main>
 
     </section>
 
@@ -643,5 +372,4 @@
     <script src="script.js"></script>
 
 </body>
-
-                </html>
+    </html>
