@@ -1,293 +1,221 @@
-/* =====================================================
-   WELCOME ANIMATION
-
-   Sequence:
-
-   1. Boy is visible immediately.
-   2. Boy moves across the screen.
-   3. Boy stops.
-   4. Boy waves.
-   5. Bike reveals itself.
-   6. Welcome message appears.
-   7. Enter button appears.
-===================================================== */
+const BACKEND_URL =
+    "https://story-forge-ai-backend.onrender.com";
 
 
-const boy = document.getElementById("boy");
+/* =========================
+   SCREEN ELEMENTS
+========================= */
 
-const bike = document.getElementById("future-bike");
+const welcomeScreen =
+    document.getElementById("welcomeScreen");
 
-const wavingArm = document.getElementById("waving-arm");
+const authScreen =
+    document.getElementById("authScreen");
 
-const greeting = document.getElementById("greeting");
-
-const enterButton = document.getElementById("enter-button");
-
-
-/*
-
-    The CSS animation lasts 9 seconds for the boy.
-
-    The boy reaches his stopping point at
-    approximately 65% of 9 seconds.
-
-    That is approximately 5.85 seconds.
-
-*/
+const dashboardScreen =
+    document.getElementById("dashboardScreen");
 
 
-setTimeout(() => {
+/* =========================
+   AUTH PANELS
+========================= */
 
-    /*
-        The boy has stopped.
+const loginPanel =
+    document.getElementById("loginPanel");
 
-        Now he waves.
-    */
+const signupPanel =
+    document.getElementById("signupPanel");
 
-    wavingArm.classList.add("wave-animation");
-
-}, 6000);
-
-
-setTimeout(() => {
-
-    /*
-        The bike now reveals itself.
-
-        It was completely invisible
-        while the boy was moving.
-    */
-
-    bike.classList.add("bike-reveal");
-
-}, 7000);
+const forgotPanel =
+    document.getElementById("forgotPanel");
 
 
-setTimeout(() => {
+/* =========================
+   BUTTONS
+========================= */
 
-    greeting.classList.remove("hidden");
+const enterForgeButton =
+    document.getElementById("enterForgeButton");
 
-}, 8500);
+const backToWelcome =
+    document.getElementById("backToWelcome");
+
+const showSignupButton =
+    document.getElementById("showSignupButton");
+
+const showLoginButton =
+    document.getElementById("showLoginButton");
+
+const forgotPasswordButton =
+    document.getElementById("forgotPasswordButton");
+
+const backToLoginButton =
+    document.getElementById("backToLoginButton");
+
+const logoutButton =
+    document.getElementById("logoutButton");
 
 
-setTimeout(() => {
+/* =========================
+   SCREEN FUNCTIONS
+========================= */
 
-    enterButton.classList.remove("hidden");
+function showAuth() {
 
-}, 10000);
+    welcomeScreen.classList.add("hidden");
+
+    dashboardScreen.classList.add("hidden");
+
+    authScreen.classList.remove("hidden");
+
+    showLogin();
+
+}
 
 
-/* =====================================================
-   ENTER THE FORGE
-===================================================== */
+function showWelcome() {
 
-enterButton.addEventListener(
+    authScreen.classList.add("hidden");
+
+    dashboardScreen.classList.add("hidden");
+
+    welcomeScreen.classList.remove("hidden");
+
+}
+
+
+function showDashboard() {
+
+    welcomeScreen.classList.add("hidden");
+
+    authScreen.classList.add("hidden");
+
+    dashboardScreen.classList.remove("hidden");
+
+}
+
+
+/* =========================
+   AUTH PANEL FUNCTIONS
+========================= */
+
+function showLogin() {
+
+    loginPanel.classList.remove("hidden");
+
+    signupPanel.classList.add("hidden");
+
+    forgotPanel.classList.add("hidden");
+
+}
+
+
+function showSignup() {
+
+    loginPanel.classList.add("hidden");
+
+    signupPanel.classList.remove("hidden");
+
+    forgotPanel.classList.add("hidden");
+
+}
+
+
+function showForgotPassword() {
+
+    loginPanel.classList.add("hidden");
+
+    signupPanel.classList.add("hidden");
+
+    forgotPanel.classList.remove("hidden");
+
+}
+
+
+/* =========================
+   EVENT LISTENERS
+========================= */
+
+enterForgeButton.addEventListener(
     "click",
-    () => {
-
-        document
-            .getElementById("welcome-screen")
-            .classList
-            .add("hidden");
-
-
-        document
-            .getElementById("auth-screen")
-            .classList
-            .remove("hidden");
-
-    }
+    showAuth
 );
 
 
-/* =====================================================
-   LOGIN / SIGN UP TABS
-===================================================== */
+backToWelcome.addEventListener(
+    "click",
+    showWelcome
+);
 
-const loginTab =
-    document.getElementById("login-tab");
 
-const signupTab =
-    document.getElementById("signup-tab");
+showSignupButton.addEventListener(
+    "click",
+    showSignup
+);
 
-const loginForm =
-    document.getElementById("login-form");
+
+showLoginButton.addEventListener(
+    "click",
+    showLogin
+);
+
+
+forgotPasswordButton.addEventListener(
+    "click",
+    showForgotPassword
+);
+
+
+backToLoginButton.addEventListener(
+    "click",
+    showLogin
+);
+
+
+/* =========================
+   SIGNUP
+========================= */
 
 const signupForm =
-    document.getElementById("signup-form");
+    document.getElementById("signupForm");
 
-
-loginTab.addEventListener(
-    "click",
-    () => {
-
-        loginTab.classList.add("active");
-
-        signupTab.classList.remove("active");
-
-        loginForm.classList.remove("hidden");
-
-        signupForm.classList.add("hidden");
-
-    }
-);
-
-
-signupTab.addEventListener(
-    "click",
-    () => {
-
-        signupTab.classList.add("active");
-
-        loginTab.classList.remove("active");
-
-        signupForm.classList.remove("hidden");
-
-        loginForm.classList.add("hidden");
-
-    }
-);
-
-
-/* =====================================================
-   API URL
-
-   We will replace this with your actual Render
-   backend URL when we connect the frontend.
-===================================================== */
-
-
-const API_URL =
-    "https://YOUR-RENDER-BACKEND-URL.onrender.com";
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-loginForm.addEventListener(
-    "submit",
-    async (event) => {
-
-        event.preventDefault();
-
-
-        const username =
-            document
-                .getElementById("login-username")
-                .value;
-
-
-        const password =
-            document
-                .getElementById("login-password")
-                .value;
-
-
-        const message =
-            document
-                .getElementById("auth-message");
-
-
-        try {
-
-            const response =
-                await fetch(
-                    `${API_URL}/login`,
-                    {
-
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body: JSON.stringify({
-
-                            username,
-
-                            password
-
-                        })
-
-                    }
-                );
-
-
-            const result =
-                await response.json();
-
-
-            if (!result.success) {
-
-                message.textContent =
-                    result.error ||
-                    "Login failed.";
-
-                return;
-
-            }
-
-
-            openDashboard();
-
-        }
-
-        catch (error) {
-
-            message.textContent =
-                "Unable to connect to server.";
-
-            console.error(error);
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   SIGN UP
-===================================================== */
 
 signupForm.addEventListener(
     "submit",
-    async (event) => {
+    async function(event) {
 
         event.preventDefault();
 
-
         const username =
-            document
-                .getElementById("signup-username")
-                .value;
-
+            document.getElementById(
+                "signupUsername"
+            ).value.trim();
 
         const email =
-            document
-                .getElementById("signup-email")
-                .value;
-
+            document.getElementById(
+                "signupEmail"
+            ).value.trim();
 
         const password =
-            document
-                .getElementById("signup-password")
-                .value;
-
+            document.getElementById(
+                "signupPassword"
+            ).value;
 
         const message =
-            document
-                .getElementById("auth-message");
+            document.getElementById(
+                "signupMessage"
+            );
+
+        message.textContent =
+            "Creating your forge...";
 
 
         try {
 
             const response =
                 await fetch(
-                    `${API_URL}/signup`,
+                    `${BACKEND_URL}/signup`,
                     {
-
                         method: "POST",
 
                         headers: {
@@ -296,13 +224,9 @@ signupForm.addEventListener(
                         },
 
                         body: JSON.stringify({
-
                             username,
-
                             email,
-
                             password
-
                         })
 
                     }
@@ -313,124 +237,273 @@ signupForm.addEventListener(
                 await response.json();
 
 
-            if (!result.success) {
+            if (
+                response.ok &&
+                result.success
+            ) {
+
+                message.textContent =
+                    "Account created successfully.";
+
+                setTimeout(
+                    showLogin,
+                    1200
+                );
+
+            } else {
 
                 message.textContent =
                     result.error ||
                     "Signup failed.";
 
-                return;
-
             }
 
-
-            openDashboard();
-
-        }
-
-        catch (error) {
-
-            message.textContent =
-                "Unable to connect to server.";
+        } catch (error) {
 
             console.error(error);
+
+            message.textContent =
+                "Unable to connect to the Story Forge server.";
 
         }
 
     }
+
 );
 
 
-/* =====================================================
-   OPEN DASHBOARD
-===================================================== */
+/* =========================
+   LOGIN
+========================= */
 
-function openDashboard() {
-
-    document
-        .getElementById("auth-screen")
-        .classList
-        .add("hidden");
+const loginForm =
+    document.getElementById("loginForm");
 
 
-    document
-        .getElementById("dashboard-screen")
-        .classList
-        .remove("hidden");
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        const username =
+            document.getElementById(
+                "loginUsername"
+            ).value.trim();
+
+        const password =
+            document.getElementById(
+                "loginPassword"
+            ).value;
+
+
+        const message =
+            document.getElementById(
+                "loginMessage"
+            );
+
+        message.textContent =
+            "Entering the forge...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${BACKEND_URL}/login`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            username,
+                            password
+                        })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (
+                response.ok &&
+                result.success
+            ) {
+
+                localStorage.setItem(
+                    "storyForgeUser",
+                    JSON.stringify(result)
+                );
+
+                showDashboard();
+
+            } else {
+
+                message.textContent =
+                    result.error ||
+                    "Login failed.";
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "Unable to connect to the Story Forge server.";
+
+        }
+
+    }
+
+);
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+const forgotForm =
+    document.getElementById("forgotForm");
+
+
+forgotForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById(
+                "forgotEmail"
+            ).value.trim();
+
+
+        const message =
+            document.getElementById(
+                "forgotMessage"
+            );
+
+        message.textContent =
+            "Contacting the forge...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${BACKEND_URL}/forgot-password`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            email
+                        })
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (
+                response.ok &&
+                result.success
+            ) {
+
+                message.textContent =
+                    "Password reset request created.";
+
+            } else {
+
+                message.textContent =
+                    result.error ||
+                    "Password reset failed.";
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.textContent =
+                "Unable to connect to the server.";
+
+        }
+
+    }
+
+);
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+logoutButton.addEventListener(
+    "click",
+    function() {
+
+        localStorage.removeItem(
+            "storyForgeUser"
+        );
+
+        showWelcome();
+
+    }
+
+);
+
+
+/* =========================
+   BACKEND CONNECTION TEST
+========================= */
+
+async function testBackend() {
+
+    try {
+
+        const response =
+            await fetch(
+                BACKEND_URL
+            );
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Story Forge.AI backend:",
+            result
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Backend connection failed:",
+            error
+        );
+
+    }
 
 }
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-document
-    .getElementById("logout-button")
-    .addEventListener(
-        "click",
-        () => {
-
-            document
-                .getElementById("dashboard-screen")
-                .classList
-                .add("hidden");
-
-
-            document
-                .getElementById("welcome-screen")
-                .classList
-                .remove("hidden");
-
-        }
-    );
-
-
-/* =====================================================
-   CREATE MOVIE
-===================================================== */
-
-document
-    .getElementById("create-movie-button")
-    .addEventListener(
-        "click",
-        () => {
-
-            document
-                .getElementById("dashboard-screen")
-                .classList
-                .add("hidden");
-
-
-            document
-                .getElementById("create-screen")
-                .classList
-                .remove("hidden");
-
-        }
-    );
-
-
-/* =====================================================
-   BACK TO DASHBOARD
-===================================================== */
-
-document
-    .getElementById("back-dashboard")
-    .addEventListener(
-        "click",
-        () => {
-
-            document
-                .getElementById("create-screen")
-                .classList
-                .add("hidden");
-
-
-            document
-                .getElementById("dashboard-screen")
-                .classList
-                .remove("hidden");
-
-        }
-    );
+testBackend();
