@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Story Forge.AI</title>
 
@@ -15,71 +19,169 @@
          WELCOME SCREEN
     ====================================================== -->
 
-    <section id="welcome-screen" class="screen active">
+    <section
+        id="welcome-screen"
+        class="screen"
+    >
 
-        <div class="cinematic-background"></div>
+        <!-- Background -->
 
-        <div class="stars"></div>
+        <div class="sky">
 
-        <div class="welcome-content">
+            <div class="stars"></div>
 
-            <h1 class="logo-title">
-                STORY <span>FORGE</span><small>.AI</small>
+            <div class="moon"></div>
+
+            <div class="purple-atmosphere"></div>
+
+        </div>
+
+
+        <!-- Brand -->
+
+        <div class="welcome-brand">
+
+            <h1>
+                STORY
+                <span>FORGE</span>
+                <small>.AI</small>
             </h1>
 
-            <p class="welcome-subtitle">
+            <p>
                 Every story has a world waiting to be created.
             </p>
 
         </div>
 
 
-        <!-- Cinematic Bike Scene -->
+        <!-- Cinematic world -->
 
-        <div class="bike-scene">
+        <div class="world">
 
-            <div class="moon"></div>
+            <div class="mountain mountain-left"></div>
 
-            <div class="mountains"></div>
+            <div class="mountain mountain-right"></div>
 
-            <div class="road"></div>
+            <div class="ground"></div>
 
-            <div class="bike-rider">
+            <div class="road">
 
-                <div class="boy">
-
-                    <div class="head"></div>
-
-                    <div class="body"></div>
-
-                    <div class="arm"></div>
-
-                    <div class="leg"></div>
-
-                </div>
-
-
-                <div class="bicycle">
-
-                    <div class="wheel wheel-front"></div>
-
-                    <div class="wheel wheel-back"></div>
-
-                    <div class="bike-frame"></div>
-
-                    <div class="handlebar"></div>
-
-                </div>
+                <div class="road-line"></div>
 
             </div>
 
 
-            <div class="welcome-wave">
+            <!-- =================================================
+                 BOY
 
-                <span class="wave-hand">👋</span>
+                 IMPORTANT:
+                 The boy is visible from the beginning.
+                 The bike is NOT attached visually to him.
+            ================================================== -->
+
+            <div
+                id="boy"
+                class="boy"
+            >
+
+                <div class="hair"></div>
+
+                <div class="head">
+
+                    <div class="eye eye-left"></div>
+
+                    <div class="eye eye-right"></div>
+
+                </div>
+
+
+                <div class="neck"></div>
+
+                <div class="body"></div>
+
+
+                <div class="arm arm-left"></div>
+
+                <div
+                    id="waving-arm"
+                    class="arm arm-right"
+                ></div>
+
+
+                <div class="leg leg-left"></div>
+
+                <div class="leg leg-right"></div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FUTURISTIC TECH BIKE
+
+                 It starts completely invisible.
+
+                 It is NOT visible while the boy is moving.
+
+                 It reveals only after the boy stops and waves.
+            ================================================== -->
+
+            <div
+                id="future-bike"
+                class="future-bike"
+            >
+
+                <div class="bike-energy-field"></div>
+
+                <div class="bike-wheel rear-wheel">
+
+                    <div class="wheel-core"></div>
+
+                </div>
+
+
+                <div class="bike-wheel front-wheel">
+
+                    <div class="wheel-core"></div>
+
+                </div>
+
+
+                <div class="bike-frame"></div>
+
+                <div class="bike-lower-frame"></div>
+
+                <div class="bike-energy-core"></div>
+
+                <div class="bike-seat"></div>
+
+                <div class="bike-handlebars"></div>
+
+                <div class="bike-front-fork"></div>
+
+                <div class="bike-headlight"></div>
+
+                <div class="bike-hologram"></div>
+
+            </div>
+
+
+            <!-- Greeting -->
+
+            <div
+                id="greeting"
+                class="greeting hidden"
+            >
+
+                <div class="wave-hand">
+                    👋
+                </div>
+
+                <h2>
+                    Welcome to Story Forge.AI
+                </h2>
 
                 <p>
-                    Welcome to Story Forge.AI
+                    Your story is waiting.
                 </p>
 
             </div>
@@ -87,9 +189,11 @@
         </div>
 
 
+        <!-- Enter button -->
+
         <button
             id="enter-button"
-            class="gold-button"
+            class="enter-button hidden"
         >
             ENTER THE FORGE
         </button>
@@ -101,18 +205,23 @@
          AUTHENTICATION SCREEN
     ====================================================== -->
 
-    <section id="auth-screen" class="screen hidden">
+    <section
+        id="auth-screen"
+        class="screen hidden"
+    >
 
         <div class="auth-container">
 
             <div class="auth-brand">
 
                 <h1>
-                    STORY <span>FORGE</span><small>.AI</small>
+                    STORY
+                    <span>FORGE</span>
+                    <small>.AI</small>
                 </h1>
 
                 <p>
-                    Enter the world where stories become movies.
+                    Enter the world where stories become cinema.
                 </p>
 
             </div>
@@ -124,13 +233,14 @@
 
                     <button
                         id="login-tab"
-                        class="active-tab"
+                        class="auth-tab active"
                     >
                         LOGIN
                     </button>
 
                     <button
                         id="signup-tab"
+                        class="auth-tab"
                     >
                         SIGN UP
                     </button>
@@ -138,7 +248,7 @@
                 </div>
 
 
-                <!-- Login -->
+                <!-- LOGIN -->
 
                 <form
                     id="login-form"
@@ -146,38 +256,32 @@
                 >
 
                     <input
-                        type="text"
                         id="login-username"
+                        type="text"
                         placeholder="Username"
                         required
                     >
 
+
                     <input
-                        type="password"
                         id="login-password"
+                        type="password"
                         placeholder="Password"
                         required
                     >
+
 
                     <button
                         type="submit"
                         class="purple-button"
                     >
-                        ENTER
-                    </button>
-
-                    <button
-                        type="button"
-                        id="forgot-password"
-                        class="text-button"
-                    >
-                        Forgot password?
+                        ENTER THE FORGE
                     </button>
 
                 </form>
 
 
-                <!-- Sign Up -->
+                <!-- SIGN UP -->
 
                 <form
                     id="signup-form"
@@ -185,25 +289,28 @@
                 >
 
                     <input
-                        type="text"
                         id="signup-username"
+                        type="text"
                         placeholder="Username"
                         required
                     >
 
+
                     <input
-                        type="email"
                         id="signup-email"
+                        type="email"
                         placeholder="Email"
                         required
                     >
 
+
                     <input
-                        type="password"
                         id="signup-password"
+                        type="password"
                         placeholder="Password"
                         required
                     >
+
 
                     <button
                         type="submit"
@@ -228,7 +335,7 @@
 
 
     <!-- =====================================================
-         MAIN DASHBOARD
+         DASHBOARD
     ====================================================== -->
 
     <section
@@ -266,6 +373,10 @@
                 </button>
 
                 <button class="nav-item">
+                    🎧 Audio
+                </button>
+
+                <button class="nav-item">
                     ⚙ Settings
                 </button>
 
@@ -288,9 +399,9 @@
 
                 <div>
 
-                    <p class="small-label">
+                    <span class="gold-label">
                         STORY FORGE.AI
-                    </p>
+                    </span>
 
                     <h1>
                         Welcome back, Founder.
@@ -306,13 +417,13 @@
             </header>
 
 
-            <section class="hero-dashboard">
+            <section class="dashboard-hero">
 
                 <div class="hero-text">
 
-                    <p class="gold-label">
+                    <span class="gold-label">
                         THE FORGE IS READY
-                    </p>
+                    </span>
 
                     <h2>
                         Turn your imagination
@@ -320,31 +431,40 @@
                     </h2>
 
                     <p>
-                        Transform stories, characters, creatures and worlds
-                        into cinematic productions.
+                        Build stories, characters, worlds and cinematic
+                        productions from your imagination.
                     </p>
 
                 </div>
 
 
-                <!-- FANG RED MOUTH CREATE BUTTON -->
+                <!-- Fang mouth create button -->
 
                 <button
                     id="create-movie-button"
-                    class="fang-button"
+                    class="fang-mouth-button"
                 >
 
-                    <span class="fang fang-left">
+                    <span class="fang top-left">
                         ▼
+                    </span>
+
+                    <span class="fang top-right">
+                        ▼
+                    </span>
+
+                    <span class="fang bottom-left">
+                        ▲
+                    </span>
+
+                    <span class="fang bottom-right">
+                        ▲
                     </span>
 
                     <span class="mouth-text">
-                        CREATE<br>
+                        CREATE
+                        <br>
                         MOVIE
-                    </span>
-
-                    <span class="fang fang-right">
-                        ▼
                     </span>
 
                 </button>
@@ -356,16 +476,16 @@
 
                 <div class="dashboard-card">
 
-                    <span class="card-icon">
+                    <div class="card-icon">
                         🎬
-                    </span>
+                    </div>
 
                     <h3>
                         Create Movie
                     </h3>
 
                     <p>
-                        Turn a story into a cinematic production.
+                        Transform your story into a cinematic production.
                     </p>
 
                 </div>
@@ -373,16 +493,16 @@
 
                 <div class="dashboard-card">
 
-                    <span class="card-icon">
+                    <div class="card-icon">
                         🧠
-                    </span>
+                    </div>
 
                     <h3>
                         Story Memory
                     </h3>
 
                     <p>
-                        Characters, creatures and worlds remembered.
+                        Characters, creatures, scenes and worlds.
                     </p>
 
                 </div>
@@ -390,16 +510,16 @@
 
                 <div class="dashboard-card">
 
-                    <span class="card-icon">
+                    <div class="card-icon">
                         🎧
-                    </span>
+                    </div>
 
                     <h3>
                         Audio Forge
                     </h3>
 
                     <p>
-                        Manage music and voice assets.
+                        Manage music, voices and audio assets.
                     </p>
 
                 </div>
@@ -488,20 +608,29 @@
 
 
             <button
-                class="fang-button create-large"
+                class="fang-mouth-button forge-button"
             >
 
-                <span class="fang fang-left">
+                <span class="fang top-left">
                     ▼
+                </span>
+
+                <span class="fang top-right">
+                    ▼
+                </span>
+
+                <span class="fang bottom-left">
+                    ▲
+                </span>
+
+                <span class="fang bottom-right">
+                    ▲
                 </span>
 
                 <span class="mouth-text">
-                    FORGE<br>
+                    FORGE
+                    <br>
                     MOVIE
-                </span>
-
-                <span class="fang fang-right">
-                    ▼
                 </span>
 
             </button>
@@ -514,4 +643,5 @@
     <script src="script.js"></script>
 
 </body>
-</html>
+
+                </html>
