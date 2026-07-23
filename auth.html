@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Enter the Forge — Story Forge.AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/base.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/auth.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="auth-page">
+
+
+        <!-- ================================================
+             BACKGROUND
+        ================================================= -->
+
+        <div class="auth-background"></div>
+
+        <div class="auth-glow auth-glow-one"></div>
+
+        <div class="auth-glow auth-glow-two"></div>
+
+
+        <!-- ================================================
+             BACK TO WELCOME
+        ================================================= -->
+
+        <button
+            class="back-button"
+            id="backButton"
+        >
+            ← BACK
+        </button>
+
+
+        <!-- ================================================
+             AUTHENTICATION CONTAINER
+        ================================================= -->
+
+        <section class="auth-container">
+
+
+            <!-- ============================================
+                 BRAND
+            ============================================= -->
+
+            <div class="auth-brand">
+
+                <div class="brand-symbol">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <h1>
+                    STORY
+                    <span>FORGE.AI</span>
+                </h1>
+
+
+                <p>
+                    ENTER THE WORLD OF YOUR STORIES
+                </p>
+
+            </div>
+
+
+            <!-- ============================================
+                 LOGIN / SIGNUP SWITCH
+            ============================================= -->
+
+            <div class="auth-tabs">
+
+                <button
+                    class="auth-tab active"
+                    id="loginTab"
+                >
+                    LOGIN
+                </button>
+
+
+                <button
+                    class="auth-tab"
+                    id="signupTab"
+                >
+                    SIGN UP
+                </button>
+
+            </div>
+
+
+            <!-- ============================================
+                 LOGIN FORM
+            ============================================= -->
+
+            <form
+                class="auth-form active"
+                id="loginForm"
+            >
+
+                <div class="form-heading">
+
+                    <h2>
+                        Welcome Back
+                    </h2>
+
+                    <p>
+                        Continue building your world.
+                    </p>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="loginUsername"
+                    >
+                        USERNAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="loginUsername"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="loginPassword"
+                    >
+                        PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="forgot-password"
+                    id="forgotPasswordButton"
+                >
+                    Forgot password?
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="forge-submit"
+                >
+
+                    <span class="submit-fang left"></span>
+
+                    ENTER THE FORGE
+
+                    <span class="submit-fang right"></span>
+
+                </button>
+
+
+                <div
+                    class="auth-message"
+                    id="loginMessage"
+                ></div>
+
+            </form>
+
+
+            <!-- ============================================
+                 SIGNUP FORM
+            ============================================= -->
+
+            <form
+                class="auth-form"
+                id="signupForm"
+            >
+
+                <div class="form-heading">
+
+                    <h2>
+                        Create Your Forge
+                    </h2>
+
+                    <p>
+                        Start creating your cinematic worlds.
+                    </p>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="signupUsername"
+                    >
+                        USERNAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="signupUsername"
+                        placeholder="Choose a username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="signupEmail"
+                    >
+                        EMAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="signupPassword"
+                    >
+                        PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label
+                        for="signupConfirmPassword"
+                    >
+                        CONFIRM PASSWORD
+                    </label>
+
+                    <input
+                        type="password"
+                        id="signupConfirmPassword"
+                        placeholder="Confirm your password"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="forge-submit"
+                >
+
+                    <span class="submit-fang left"></span>
+
+                    CREATE ACCOUNT
+
+                    <span class="submit-fang right"></span>
+
+                </button>
+
+
+                <div
+                    class="auth-message"
+                    id="signupMessage"
+                ></div>
+
+            </form>
+
+
+            <!-- ============================================
+                 FOOTER
+            ============================================= -->
+
+            <div class="auth-footer">
+
+                <span>
+                    STORY FORGE.AI
+                </span>
+
+                <span>
+                    •
+                </span>
+
+                <span>
+                    YOUR STORY. YOUR WORLD.
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="js/auth.js"
+    ></script>
+
+</body>
+
+  </html>
