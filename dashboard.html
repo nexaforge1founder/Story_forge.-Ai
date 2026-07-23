@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard — Story Forge.AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/base.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         APPLICATION
+    ====================================================== -->
+
+    <div class="app-shell">
+
+
+        <!-- =================================================
+             MOBILE OVERLAY
+        ================================================== -->
+
+        <div
+            class="mobile-overlay"
+            id="mobileOverlay"
+        ></div>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="sidebar"
+            id="sidebar"
+        >
+
+
+            <!-- BRAND -->
+
+            <div class="sidebar-brand">
+
+                <div class="brand-mark">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+                <div>
+
+                    <h1>
+                        STORY
+                        <strong>FORGE.AI</strong>
+                    </h1>
+
+                    <p>
+                        CREATIVE INTELLIGENCE
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="main-navigation">
+
+
+                <p class="navigation-label">
+                    WORKSPACE
+                </p>
+
+
+                <button
+                    class="nav-item active"
+                    data-section="dashboard"
+                >
+
+                    <span class="nav-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="create"
+                >
+
+                    <span class="nav-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        Create Movie
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="projects"
+                >
+
+                    <span class="nav-icon">
+                        ▣
+                    </span>
+
+                    <span>
+                        My Movies
+                    </span>
+
+                </button>
+
+
+                <p class="navigation-label">
+                    WORLD BUILDING
+                </p>
+
+
+                <button
+                    class="nav-item"
+                    data-section="characters"
+                >
+
+                    <span class="nav-icon">
+                        ◉
+                    </span>
+
+                    <span>
+                        Characters
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="creatures"
+                >
+
+                    <span class="nav-icon">
+                        ◇
+                    </span>
+
+                    <span>
+                        Creatures
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="audio"
+                >
+
+                    <span class="nav-icon">
+                        ♫
+                    </span>
+
+                    <span>
+                        Audio
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="nav-item"
+                    data-section="languages"
+                >
+
+                    <span class="nav-icon">
+                        文
+                    </span>
+
+                    <span>
+                        Languages
+                    </span>
+
+                </button>
+
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
+                <button
+                    class="nav-item"
+                    data-section="settings"
+                >
+
+                    <span class="nav-icon">
+                        ⚙
+                    </span>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="logout-button"
+                    id="logoutButton"
+                >
+
+                    <span>
+                        ⇥
+                    </span>
+
+                    LOG OUT
+
+                </button>
+
+
+            </div>
+
+
+        </aside>
+
+
+        <!-- =================================================
+             MAIN AREA
+        ================================================== -->
+
+        <main class="main-area">
+
+
+            <!-- TOPBAR -->
+
+            <header class="topbar">
+
+
+                <button
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                >
+                    ☰
+                </button>
+
+
+                <div class="breadcrumb">
+
+                    <span>
+                        STORY FORGE.AI
+                    </span>
+
+                    <span>
+                        /
+                    </span>
+
+                    <strong
+                        id="currentSectionName"
+                    >
+                        DASHBOARD
+                    </strong>
+
+                </div>
+
+
+                <div class="topbar-actions">
+
+
+                    <button
+                        class="notification-button"
+                        id="notificationButton"
+                    >
+                        ◌
+                    </button>
+
+
+                    <div class="user-profile">
+
+
+                        <div
+                            class="user-avatar"
+                            id="userAvatar"
+                        >
+                            F
+                        </div>
+
+
+                        <div class="user-information">
+
+                            <strong
+                                id="userName"
+                            >
+                                FOUNDER
+                            </strong>
+
+                            <span>
+                                CREATOR
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <div class="content-area">
+
+
+                <!-- =================================================
+                     DASHBOARD SECTION
+                ================================================== -->
+
+                <section
+                    class="content-section active"
+                    id="dashboardSection"
+                >
+
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                YOUR CREATIVE UNIVERSE
+                            </p>
+
+                            <h2>
+                                Welcome back,
+                                <span
+                                    id="welcomeUserName"
+                                >
+                                    Founder
+                                </span>
+                            </h2>
+
+                            <p class="section-description">
+                                Your next world is waiting to be forged.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            class="primary-create-button"
+                            data-section-target="create"
+                        >
+
+                            <span>
+                                ✦
+                            </span>
+
+                            CREATE MOVIE
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- STATISTICS -->
+
+                    <div class="stats-grid">
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-icon gold">
+                                ◈
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    MOVIES CREATED
+                                </span>
+
+                                <strong
+                                    id="moviesCount"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-icon purple">
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    CHARACTERS
+                                </span>
+
+                                <strong
+                                    id="charactersCount"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-icon red">
+                                ◇
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    CREATURES
+                                </span>
+
+                                <strong
+                                    id="creaturesCount"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <div class="stat-card-icon blue">
+                                ♫
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    AUDIO ASSETS
+                                </span>
+
+                                <strong
+                                    id="audioCount"
+                                >
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- CREATE MOVIE FEATURE -->
+
+                    <div class="forge-feature-card">
+
+
+                        <div class="forge-feature-content">
+
+                            <p class="eyebrow">
+                                THE FORGE
+                            </p>
+
+                            <h3>
+                                Turn an idea into a world.
+                            </h3>
+
+                            <p>
+                                Bring your story, screenplay, or episode.
+                                Story Forge.AI will analyze your world,
+                                characters, scenes, dialogue, and cinematic
+                                possibilities.
+                            </p>
+
+
+                            <button
+                                class="fang-create-button"
+                                data-section-target="create"
+                            >
+
+                                <span class="fang-icon">
+                                    ◈
+                                </span>
+
+                                CREATE YOUR MOVIE
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="forge-feature-visual">
+
+
+                            <div class="orbit orbit-one"></div>
+
+                            <div class="orbit orbit-two"></div>
+
+                            <div class="forge-core">
+
+                                <span>
+                                    ✦
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- RECENT PROJECTS -->
+
+                    <div class="recent-section">
+
+
+                        <div class="subsection-heading">
+
+                            <div>
+
+                                <p class="eyebrow">
+                                    WORKSPACE
+                                </p>
+
+                                <h3>
+                                    Recent Movies
+                                </h3>
+
+                            </div>
+
+
+                            <button
+                                class="text-button"
+                                data-section-target="projects"
+                            >
+                                VIEW ALL →
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="project-grid"
+                            id="recentProjects"
+                        >
+
+
+                            <div class="empty-project-state">
+
+                                <div>
+                                    ✦
+                                </div>
+
+                                <h4>
+                                    Your first movie is waiting.
+                                </h4>
+
+                                <p>
+                                    Create something that has never existed.
+                                </p>
+
+                                <button
+                                    class="text-button"
+                                    data-section-target="create"
+                                >
+                                    START CREATING →
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- =================================================
+                     CREATE SECTION
+                ================================================== -->
+
+                <section
+                    class="content-section"
+                    id="createSection"
+                >
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                THE FORGE
+                            </p>
+
+                            <h2>
+                                Create a Movie
+                            </h2>
+
+                            <p class="section-description">
+                                Begin with a story. Build an entire world.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="creation-workspace">
+
+
+                        <div class="creation-main-card">
+
+
+                            <div class="creation-card-heading">
+
+                                <div class="creation-number">
+                                    01
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Your Story
+                                    </h3>
+
+                                    <p>
+                                        Give the Forge your story or screenplay.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label
+                                    for="movieTitle"
+                                >
+                                    MOVIE TITLE
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="movieTitle"
+                                    placeholder="Enter the title of your story..."
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label
+                                    for="storyContent"
+                                >
+                                    STORY / SCREENPLAY / EPISODE
+                                </label>
+
+                                <textarea
+                                    id="storyContent"
+                                    rows="15"
+                                    placeholder="Write or paste your story here..."
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="story-input-actions">
+
+                                <button
+                                    class="secondary-button"
+                                    id="uploadStoryButton"
+                                >
+                                    ↑ UPLOAD FILE
+                                </button>
+
+
+                                <input
+                                    type="file"
+                                    id="storyFileInput"
+                                    accept=".txt,.md,.doc,.docx"
+                                    hidden
+                                >
+
+                                <span
+                                    id="fileNameDisplay"
+                                ></span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <aside class="creation-settings-card">
+
+
+                            <div class="creation-card-heading">
+
+                                <div class="creation-number">
+                                    02
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        World Settings
+                                    </h3>
+
+                                    <p>
+                                        Define the foundation of your world.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label
+                                    for="genreSelect"
+                                >
+                                    GENRE
+                                </label>
+
+                                <select
+                                    id="genreSelect"
+                                >
+
+                                    <option value="realistic">
+                                        Realistic
+                                    </option>
+
+                                    <option value="fantasy">
+                                       
