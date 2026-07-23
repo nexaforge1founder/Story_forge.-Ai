@@ -1,200 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08070c">
-  <title>Story Forge.AI</title>
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/welcome.css">
-  <link rel="stylesheet" href="css/auth.css">
-  <link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Story Forge.AI — Transform stories into cinematic worlds."
+    >
+
+    <title>Story Forge.AI</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/welcome.css">
 </head>
+
 <body>
-  <div id="app">
-    <section id="welcomePage" class="page active">
-      <div class="cinematic-scene">
-        <div class="sky-glow"></div>
-        <div class="moon"></div>
-        <div class="mountains"></div>
-        <div class="forest forest-back"></div>
-        <div class="forest forest-front"></div>
-        <div class="city-silhouette"></div>
-        <div class="road">
-          <div class="road-light"></div>
-        </div>
 
-        <div class="title-drop" id="titleDrop">
-          <span>WELCOME TO</span>
-          <strong>STORY FORGE<span>.AI</span></strong>
-        </div>
+    <!-- =====================================================
+         CINEMATIC WELCOME SCENE
+    ====================================================== -->
 
-        <div class="rider-stage">
-          <div class="rider-shadow"></div>
-          <div class="rider">
-            <div class="helmet"></div>
-            <div class="head"></div>
-            <div class="neck"></div>
-            <div class="torso"></div>
-            <div class="arm arm-left"></div>
-            <div class="arm arm-right"></div>
-            <div class="hand hand-left"></div>
-            <div class="hand hand-right"></div>
-            <div class="leg leg-left"></div>
-            <div class="leg leg-right"></div>
-            <div class="shoe shoe-left"></div>
-            <div class="shoe shoe-right"></div>
-          </div>
+    <main class="welcome-scene">
 
-          <div class="bike hidden-bike" id="techBike">
-            <div class="bike-wheel wheel-front"></div>
-            <div class="bike-wheel wheel-back"></div>
-            <div class="bike-frame"></div>
-            <div class="bike-body"></div>
-            <div class="bike-handle"></div>
-            <div class="bike-glow"></div>
-          </div>
-        </div>
+        <!-- Background atmosphere -->
+        <div class="background-layer"></div>
 
-        <div class="welcome-copy">
-          <p class="eyebrow">A cinematic story creation studio</p>
-          <h1>Every story deserves<br><span>its own universe.</span></h1>
-          <p class="subcopy">Create movies, shape characters, build worlds, and forge stories with AI.</p>
-        </div>
+        <div class="fog fog-one"></div>
+        <div class="fog fog-two"></div>
 
-        <div class="welcome-actions">
-          <button class="fang-button" id="enterForgeBtn">
-            <span class="fang-top">◢</span>
-            <span>ENTER THE FORGE</span>
-            <span class="fang-bottom">◣</span>
-          </button>
-          <button class="ghost-button" id="loginQuickBtn">LOGIN / SIGN UP</button>
-        </div>
+        <div class="light-ray light-ray-one"></div>
+        <div class="light-ray light-ray-two"></div>
 
-        <div class="wave-message" id="waveMessage">Welcome, storyteller.</div>
-      </div>
-    </section>
 
-    <section id="authPage" class="page">
-      <div class="auth-layout">
-        <div class="auth-visual">
-          <button class="back-button" data-go="welcomePage">← Back</button>
-          <div class="auth-orb"></div>
-          <p class="eyebrow">STORY FORGE.AI</p>
-          <h2>Your next universe<br><span>starts here.</span></h2>
-          <p>Enter the forge and turn ideas into cinematic stories.</p>
-        </div>
+        <!-- =================================================
+             WELCOME TITLE
+        ================================================== -->
 
-        <div class="auth-panel">
-          <div class="auth-tabs">
-            <button class="auth-tab active" data-auth="login">LOGIN</button>
-            <button class="auth-tab" data-auth="signup">SIGN UP</button>
-          </div>
+        <section
+            class="welcome-title"
+            id="welcomeTitle"
+        >
 
-          <form id="loginForm" class="auth-form">
-            <h1>Welcome back.</h1>
-            <p class="form-note">Return to your worlds.</p>
-            <label>Username<input id="loginUsername" required autocomplete="username"></label>
-            <label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label>
-            <button class="primary-button" type="submit">ENTER THE FORGE</button>
-            <button class="text-button" type="button" id="forgotBtn">Forgot password?</button>
-          </form>
+            <p class="small-title">
+                THE FUTURE OF STORYTELLING
+            </p>
 
-          <form id="signupForm" class="auth-form hidden">
-            <h1>Create your account.</h1>
-            <p class="form-note">Your story begins with a single idea.</p>
-            <label>Username<input id="signupUsername" required autocomplete="username"></label>
-            <label>Email<input id="signupEmail" type="email" required autocomplete="email"></label>
-            <label>Password<input id="signupPassword" type="password" required minlength="8" autocomplete="new-password"></label>
-            <button class="primary-button" type="submit">CREATE ACCOUNT</button>
-          </form>
+            <h1>
+                Welcome to
+                <span>Story Forge.AI</span>
+            </h1>
 
-          <div id="authMessage" class="auth-message"></div>
-        </div>
-      </div>
-    </section>
+            <p class="title-description">
+                Where stories become worlds.
+            </p>
 
-    <section id="dashboardPage" class="page">
-      <div class="dashboard-shell">
-        <aside class="sidebar">
-          <div class="brand-mark">SF<span>.AI</span></div>
-          <nav>
-            <button class="side-link active" data-panel="overview">◈ Overview</button>
-            <button class="side-link" data-panel="movies">▣ My Movies</button>
-            <button class="side-link" data-panel="characters">♢ Characters</button>
-            <button class="side-link" data-panel="audio">♫ Audio</button>
-            <button class="side-link" data-panel="memory">◉ Memory</button>
-          </nav>
-          <button class="side-link logout" id="logoutBtn">↪ Log out</button>
-        </aside>
+        </section>
 
-        <main class="dashboard-main">
-          <header class="dashboard-header">
-            <div>
-              <p class="eyebrow">THE FORGE</p>
-              <h1 id="dashboardGreeting">Welcome, storyteller.</h1>
-            </div>
-            <div class="profile-chip"><span class="profile-dot"></span><span id="profileName">Founder</span></div>
-          </header>
 
-          <section id="overviewPanel" class="dashboard-panel active">
-            <div class="hero-card">
-              <div>
-                <p class="eyebrow">CREATE SOMETHING IMPOSSIBLE</p>
-                <h2>Turn a story into<br><span>a cinematic world.</span></h2>
-                <p>Analyze your story, build its characters, plan its scenes, and prepare it for movie creation.</p>
-              </div>
-              <button class="create-movie-button" id="createMovieBtn">
-                <span class="fang-icon">◢◣</span>
-                <strong>CREATE<br>MOVIE</strong>
-              </button>
+        <!-- =================================================
+             CINEMATIC CHARACTER
+        ================================================== -->
+
+        <section
+            class="rider-scene"
+            id="riderScene"
+        >
+
+            <!-- Rider -->
+            <div
+                class="rider"
+                id="rider"
+            >
+
+                <div class="rider-shadow"></div>
+
+                <!-- Head -->
+                <div class="rider-head">
+
+                    <div class="hair"></div>
+
+                    <div class="face">
+
+                        <div class="eye eye-left"></div>
+                        <div class="eye eye-right"></div>
+
+                        <div class="nose"></div>
+
+                        <div class="mouth"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Neck -->
+                <div class="neck"></div>
+
+
+                <!-- Body -->
+                <div class="rider-body">
+
+                    <div class="jacket-detail"></div>
+
+                </div>
+
+
+                <!-- Left arm -->
+                <div class="arm arm-left">
+                    <div class="hand"></div>
+                </div>
+
+
+                <!-- Right arm -->
+                <div class="arm arm-right">
+                    <div class="hand"></div>
+                </div>
+
+
+                <!-- Legs -->
+                <div class="leg leg-left">
+                    <div class="shoe"></div>
+                </div>
+
+                <div class="leg leg-right">
+                    <div class="shoe"></div>
+                </div>
+
+
+                <!-- Waving hand -->
+                <div
+                    class="wave-hand"
+                    id="waveHand"
+                ></div>
+
             </div>
 
-            <div class="stat-grid">
-              <div class="stat-card"><span>PROJECTS</span><strong>0</strong><small>Ready to forge</small></div>
-              <div class="stat-card"><span>CHARACTERS</span><strong>0</strong><small>Waiting for a story</small></div>
-              <div class="stat-card"><span>MEMORY</span><strong>ACTIVE</strong><small>Connected to your forge</small></div>
+
+            <!-- =================================================
+                 FUTURISTIC BIKE
+            ================================================== -->
+
+            <div
+                class="tech-bike"
+                id="techBike"
+            >
+
+                <!-- Main frame -->
+                <div class="bike-frame"></div>
+
+                <div class="bike-core"></div>
+
+                <!-- Front wheel -->
+                <div class="bike-wheel bike-wheel-front">
+
+                    <div class="wheel-ring"></div>
+                    <div class="wheel-energy"></div>
+
+                </div>
+
+
+                <!-- Rear wheel -->
+                <div class="bike-wheel bike-wheel-back">
+
+                    <div class="wheel-ring"></div>
+                    <div class="wheel-energy"></div>
+
+                </div>
+
+
+                <!-- Front handle -->
+                <div class="bike-handle"></div>
+
+                <!-- Seat -->
+                <div class="bike-seat"></div>
+
+                <!-- Technology lights -->
+                <div class="bike-light bike-light-front"></div>
+                <div class="bike-light bike-light-back"></div>
+
+                <div class="bike-energy-line"></div>
+
             </div>
 
-            <div class="section-heading"><h2>Your forge</h2><span>Build your next world</span></div>
-            <div class="empty-state">
-              <div class="empty-symbol">✦</div>
-              <h3>No movie projects yet</h3>
-              <p>Your first cinematic universe is waiting to be created.</p>
-              <button class="secondary-button" id="createMovieSecondary">Create your first movie</button>
-            </div>
-          </section>
+        </section>
 
-          <section id="moviesPanel" class="dashboard-panel">
-            <div class="section-heading"><h2>My Movies</h2><span>Your cinematic projects</span></div>
-            <div class="empty-state"><div class="empty-symbol">▣</div><h3>No movies yet</h3><p>Create a movie to see your projects here.</p></div>
-          </section>
 
-          <section id="charactersPanel" class="dashboard-panel">
-            <div class="section-heading"><h2>Characters</h2><span>People and creatures in your worlds</span></div>
-            <div class="empty-state"><div class="empty-symbol">♢</div><h3>No characters yet</h3><p>Characters will appear here after your story is analyzed.</p></div>
-          </section>
+        <!-- =================================================
+             ENTER THE FORGE BUTTON
+        ================================================== -->
 
-          <section id="audioPanel" class="dashboard-panel">
-            <div class="section-heading"><h2>Audio</h2><span>Music and voice assets</span></div>
-            <div class="empty-state"><div class="empty-symbol">♫</div><h3>No audio assets yet</h3><p>Your permitted music and voice assets will appear here.</p></div>
-          </section>
+        <button
+            class="forge-button"
+            id="forgeButton"
+        >
 
-          <section id="memoryPanel" class="dashboard-panel">
-            <div class="section-heading"><h2>Memory</h2><span>Your Story Forge.AI memory system</span></div>
-            <div class="memory-card"><div class="memory-core"></div><h3>Memory system online</h3><p>Your stories, characters, creatures, scenes, audio, videos, and language plans can be connected to the backend memory system.</p></div>
-          </section>
-        </main>
-      </div>
-    </section>
+            <span class="fang fang-left"></span>
 
-    <div id="toast" class="toast"></div>
-  </div>
+            <span class="button-text">
+                ENTER THE FORGE
+            </span>
 
-  <script src="js/api.js"></script>
-  <script src="js/welcome.js"></script>
-  <script src="js/auth.js"></script>
-  <script src="js/dashboard.js"></script>
-  <script src="js/app.js"></script>
+            <span class="fang fang-right"></span>
+
+        </button>
+
+
+        <!-- =================================================
+             SCENE STATUS
+        ================================================== -->
+
+        <div
+            class="scene-status"
+            id="sceneStatus"
+        >
+            Approaching the Forge...
+        </div>
+
+
+        <!-- =================================================
+             SKIP INTRO
+        ================================================== -->
+
+        <button
+            class="skip-button"
+            id="skipButton"
+        >
+            SKIP INTRO
+        </button>
+
+    </main>
+
+
+    <script src="js/welcome.js"></script>
+
 </body>
-</html>
+      </html>
