@@ -1,0 +1,1542 @@
+/* ============================================================
+   WELCOME SCENE
+============================================================ */
+
+.welcome-scene {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.92)
+        );
+
+}
+
+
+/* ============================================================
+   CINEMATIC BACKGROUND
+============================================================ */
+
+.background-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            rgba(4, 7, 15, 0.15),
+            rgba(0, 0, 0, 0.92)
+        ),
+
+        radial-gradient(
+            ellipse at 50% 20%,
+            rgba(94, 63, 145, 0.32),
+            transparent 48%
+        ),
+
+        linear-gradient(
+            115deg,
+            #101b1d 0%,
+            #071011 35%,
+            #130b1c 68%,
+            #020202 100%
+        );
+
+}
+
+
+/* ============================================================
+   FOREST SILHOUETTES
+============================================================ */
+
+.background-layer::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -5%;
+    right: -5%;
+
+    bottom: 0;
+
+    height: 48%;
+
+    opacity: 0.75;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            transparent 45%,
+            rgba(4, 20, 17, 0.95) 46%,
+            rgba(4, 20, 17, 0.95) 55%,
+            transparent 56%
+        );
+
+    background-size:
+        130px 170px;
+
+    filter:
+        blur(1px);
+
+}
+
+
+/* ============================================================
+   DISTANT CITY LIGHTS
+============================================================ */
+
+.background-layer::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 30%;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 18%;
+
+    opacity: 0.4;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            transparent 40px,
+            rgba(212, 175, 55, 0.22) 41px,
+            rgba(212, 175, 55, 0.22) 44px,
+            transparent 45px,
+            transparent 95px
+        );
+
+    filter:
+        blur(3px);
+
+}
+
+
+/* ============================================================
+   FOG
+============================================================ */
+
+.fog {
+
+    position: absolute;
+
+    z-index: 2;
+
+    width: 70vw;
+
+    height: 18vh;
+
+    border-radius: 50%;
+
+    background:
+        rgba(210, 210, 210, 0.04);
+
+    filter:
+        blur(40px);
+
+    pointer-events:
+        none;
+
+}
+
+
+.fog-one {
+
+    left: -20%;
+
+    bottom: 18%;
+
+    animation:
+        fogMoveOne 16s ease-in-out infinite alternate;
+
+}
+
+
+.fog-two {
+
+    right: -20%;
+
+    bottom: 32%;
+
+    animation:
+        fogMoveTwo 20s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes fogMoveOne {
+
+    from {
+        transform:
+            translateX(-5%);
+    }
+
+    to {
+        transform:
+            translateX(35%);
+    }
+
+}
+
+
+@keyframes fogMoveTwo {
+
+    from {
+        transform:
+            translateX(20%);
+    }
+
+    to {
+        transform:
+            translateX(-30%);
+    }
+
+}
+
+
+/* ============================================================
+   LIGHT RAYS
+============================================================ */
+
+.light-ray {
+
+    position: absolute;
+
+    z-index: 1;
+
+    width: 20vw;
+
+    height: 100vh;
+
+    opacity: 0.12;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(212, 175, 55, 0.5),
+            transparent
+        );
+
+    filter:
+        blur(30px);
+
+    transform:
+        rotate(18deg);
+
+}
+
+
+.light-ray-one {
+
+    left: 15%;
+
+}
+
+
+.light-ray-two {
+
+    right: 15%;
+
+    transform:
+        rotate(-18deg);
+
+}
+
+
+/* ============================================================
+   WELCOME TITLE
+============================================================ */
+
+.welcome-title {
+
+    position: absolute;
+
+    z-index: 8;
+
+    top: 7%;
+
+    width: 100%;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(-140px);
+
+    animation:
+        titleFall 2s cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        )
+        2.5s
+        forwards;
+
+}
+
+
+@keyframes titleFall {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-140px)
+            scale(0.8);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            translateY(15px)
+            scale(1.03);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.small-title {
+
+    margin-bottom: 12px;
+
+    color:
+        var(--gold);
+
+    font-size:
+        clamp(0.6rem, 1vw, 0.85rem);
+
+    letter-spacing:
+        0.45em;
+
+}
+
+
+.welcome-title h1 {
+
+    font-size:
+        clamp(2.2rem, 6vw, 5.8rem);
+
+    font-weight:
+        300;
+
+    letter-spacing:
+        -0.04em;
+
+    text-shadow:
+        0 0 25px rgba(255, 255, 255, 0.15);
+
+}
+
+
+.welcome-title h1 span {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color:
+        var(--gold);
+
+    font-weight:
+        700;
+
+    text-shadow:
+
+        0 0 10px rgba(212, 175, 55, 0.6),
+
+        0 0 35px rgba(212, 175, 55, 0.3);
+
+}
+
+
+.title-description {
+
+    margin-top: 15px;
+
+    color:
+        var(--soft-white);
+
+    font-size:
+        clamp(0.8rem, 1.5vw, 1.1rem);
+
+    letter-spacing:
+        0.18em;
+
+}
+
+
+/* ============================================================
+   RIDER SCENE
+============================================================ */
+
+.rider-scene {
+
+    position: absolute;
+
+    z-index: 5;
+
+    bottom: 15%;
+
+    width: 480px;
+
+    height: 420px;
+
+    transform:
+        scale(0.9);
+
+}
+
+
+/* ============================================================
+   RIDER
+============================================================ */
+
+.rider {
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: 185px;
+
+    bottom: 95px;
+
+    width: 105px;
+
+    height: 270px;
+
+    animation:
+        riderArrival 4s
+        ease-out
+        forwards;
+
+}
+
+
+@keyframes riderArrival {
+
+    from {
+
+        transform:
+            translateX(-300px)
+            scale(0.8);
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        transform:
+            translateX(0)
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* ============================================================
+   HEAD
+============================================================ */
+
+.rider-head {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 27px;
+
+    width: 58px;
+
+    height: 68px;
+
+}
+
+
+.face {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius:
+        48% 48% 45% 45%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d7a17d,
+            #9b624d
+        );
+
+    box-shadow:
+        inset -7px -4px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.hair {
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: -8px;
+
+    left: 3px;
+
+    width: 54px;
+
+    height: 32px;
+
+    border-radius:
+        50% 50% 20% 20%;
+
+    background:
+        #151118;
+
+    transform:
+        rotate(-5deg);
+
+}
+
+
+.eye {
+
+    position: absolute;
+
+    top: 31px;
+
+    width: 6px;
+
+    height: 5px;
+
+    border-radius:
+        50%;
+
+    background:
+        #111;
+
+}
+
+
+.eye-left {
+
+    left: 17px;
+
+}
+
+
+.eye-right {
+
+    right: 17px;
+
+}
+
+
+.nose {
+
+    position: absolute;
+
+    top: 38px;
+
+    left: 27px;
+
+    width: 5px;
+
+    height: 9px;
+
+    border-right:
+        1px solid rgba(0, 0, 0, 0.3);
+
+}
+
+
+.mouth {
+
+    position: absolute;
+
+    bottom: 12px;
+
+    left: 22px;
+
+    width: 15px;
+
+    height: 5px;
+
+    border-bottom:
+        2px solid #5c2928;
+
+    border-radius:
+        50%;
+
+}
+
+
+/* ============================================================
+   BODY
+============================================================ */
+
+.neck {
+
+    position: absolute;
+
+    top: 59px;
+
+    left: 48px;
+
+    width: 23px;
+
+    height: 24px;
+
+    background:
+        #a86d53;
+
+}
+
+
+.rider-body {
+
+    position: absolute;
+
+    top: 73px;
+
+    left: 20px;
+
+    width: 72px;
+
+    height: 115px;
+
+    border-radius:
+        22px 22px 12px 12px;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #17121e,
+            #332547,
+            #0a0910
+        );
+
+    box-shadow:
+
+        inset 0 0 20px rgba(124, 58, 237, 0.3),
+
+        0 10px 20px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.jacket-detail {
+
+    position: absolute;
+
+    left: 34px;
+
+    top: 5px;
+
+    width: 3px;
+
+    height: 100px;
+
+    background:
+        rgba(212, 175, 55, 0.45);
+
+}
+
+
+/* ============================================================
+   ARMS
+============================================================ */
+
+.arm {
+
+    position: absolute;
+
+    top: 84px;
+
+    width: 22px;
+
+    height: 100px;
+
+    border-radius:
+        15px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #17121e,
+            #392c4d
+        );
+
+    transform-origin:
+        top center;
+
+}
+
+
+.arm-left {
+
+    left: 10px;
+
+    transform:
+        rotate(25deg);
+
+}
+
+
+.arm-right {
+
+    right: 5px;
+
+    transform:
+        rotate(-40deg);
+
+}
+
+
+.hand {
+
+    position: absolute;
+
+    bottom: -12px;
+
+    left: 2px;
+
+    width: 19px;
+
+    height: 22px;
+
+    border-radius:
+        50%;
+
+    background:
+        #b8795e;
+
+}
+
+
+/* ============================================================
+   LEGS
+============================================================ */
+
+.leg {
+
+    position: absolute;
+
+    top: 175px;
+
+    width: 27px;
+
+    height: 105px;
+
+    border-radius:
+        14px;
+
+    background:
+        #111019;
+
+}
+
+
+.leg-left {
+
+    left: 25px;
+
+    transform:
+        rotate(9deg);
+
+}
+
+
+.leg-right {
+
+    right: 23px;
+
+    transform:
+        rotate(-9deg);
+
+}
+
+
+.shoe {
+
+    position: absolute;
+
+    bottom: -5px;
+
+    width: 42px;
+
+    height: 17px;
+
+    border-radius:
+        12px 15px 5px 5px;
+
+    background:
+        #070707;
+
+}
+
+
+/* ============================================================
+   WAVE HAND
+============================================================ */
+
+.wave-hand {
+
+    position: absolute;
+
+    z-index: 8;
+
+    top: 72px;
+
+    right: -45px;
+
+    width: 20px;
+
+    height: 75px;
+
+    border-radius:
+        12px;
+
+    background:
+        #b8795e;
+
+    opacity: 0;
+
+    transform:
+        rotate(-35deg);
+
+}
+
+
+.rider.waving .wave-hand {
+
+    opacity: 1;
+
+    animation:
+        waveHand 1.4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes waveHand {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-35deg);
+
+    }
+
+    50% {
+
+        transform:
+            rotate(-70deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   RIDER SHADOW
+============================================================ */
+
+.rider-shadow {
+
+    position: absolute;
+
+    z-index: -1;
+
+    bottom: -5px;
+
+    left: -35px;
+
+    width: 180px;
+
+    height: 25px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(0, 0, 0, 0.7);
+
+    filter:
+        blur(10px);
+
+}
+
+
+/* ============================================================
+   FUTURISTIC BIKE
+============================================================ */
+
+.tech-bike {
+
+    position: absolute;
+
+    z-index: 3;
+
+    left: 30px;
+
+    bottom: 40px;
+
+    width: 420px;
+
+    height: 210px;
+
+    opacity: 0;
+
+    transform:
+        scale(0.75)
+        translateY(30px);
+
+    transition:
+
+        opacity 1.8s ease,
+
+        transform 1.8s ease;
+
+}
+
+
+.tech-bike.revealed {
+
+    opacity: 1;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+}
+
+
+/* ============================================================
+   BIKE WHEELS
+============================================================ */
+
+.bike-wheel {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 42%,
+            rgba(124, 58, 237, 0.12) 43%,
+            rgba(124, 58, 237, 0.12) 48%,
+            transparent 49%
+        );
+
+    border:
+        2px solid rgba(212, 175, 55, 0.55);
+
+    box-shadow:
+
+        0 0 15px rgba(124, 58, 237, 0.7),
+
+        inset 0 0 20px rgba(124, 58, 237, 0.25);
+
+}
+
+
+.bike-wheel-front {
+
+    right: 0;
+
+}
+
+
+.bike-wheel-back {
+
+    left: 0;
+
+}
+
+
+.wheel-ring {
+
+    position: absolute;
+
+    inset: 13px;
+
+    border:
+        1px solid rgba(212, 175, 55, 0.35);
+
+    border-radius:
+        50%;
+
+}
+
+
+.wheel-energy {
+
+    position: absolute;
+
+    inset: 25px;
+
+    border:
+        2px dashed rgba(124, 58, 237, 0.7);
+
+    border-radius:
+        50%;
+
+    animation:
+        rotateEnergy 4s linear infinite;
+
+}
+
+
+@keyframes rotateEnergy {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+}
+
+
+/* ============================================================
+   BIKE FRAME
+============================================================ */
+
+.bike-frame {
+
+    position: absolute;
+
+    left: 85px;
+
+    top: 58px;
+
+    width: 250px;
+
+    height: 65px;
+
+    border-bottom:
+        14px solid #20172e;
+
+    border-radius:
+        50%;
+
+    transform:
+        rotate(-4deg);
+
+    box-shadow:
+        0 0 18px rgba(124, 58, 237, 0.55);
+
+}
+
+
+.bike-core {
+
+    position: absolute;
+
+    left: 130px;
+
+    top: 73px;
+
+    width: 150px;
+
+    height: 44px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16101e,
+            #392454,
+            #100b16
+        );
+
+    box-shadow:
+        0 0 20px rgba(124, 58, 237, 0.65);
+
+}
+
+
+.bike-seat {
+
+    position: absolute;
+
+    left: 145px;
+
+    top: 47px;
+
+    width: 70px;
+
+    height: 13px;
+
+    border-radius:
+        50%;
+
+    background:
+        #09070d;
+
+}
+
+
+.bike-handle {
+
+    position: absolute;
+
+    right: 58px;
+
+    top: 37px;
+
+    width: 62px;
+
+    height: 45px;
+
+    border-top:
+        5px solid #24202c;
+
+    border-right:
+        5px solid #24202c;
+
+    transform:
+        rotate(15deg);
+
+}
+
+
+/* ============================================================
+   BIKE LIGHTS
+============================================================ */
+
+.bike-light {
+
+    position: absolute;
+
+    width: 22px;
+
+    height: 8px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--gold);
+
+    box-shadow:
+        0 0 20px var(--gold);
+
+}
+
+
+.bike-light-front {
+
+    right: 40px;
+
+    top: 75px;
+
+}
+
+
+.bike-light-back {
+
+    left: 42px;
+
+    top: 90px;
+
+}
+
+
+.bike-energy-line {
+
+    position: absolute;
+
+    left: 130px;
+
+    top: 117px;
+
+    width: 150px;
+
+    height: 3px;
+
+    background:
+        var(--purple);
+
+    box-shadow:
+        0 0 15px var(--purple);
+
+}
+
+
+/* ============================================================
+   FORGE BUTTON
+============================================================ */
+
+.forge-button {
+
+    position: absolute;
+
+    z-index: 20;
+
+    bottom: 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    min-width: 280px;
+
+    padding: 18px 30px;
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #47000b,
+            var(--fang-red),
+            #58000d
+        );
+
+    border:
+        1px solid rgba(255, 80, 90, 0.55);
+
+    clip-path:
+        polygon(
+            4% 0,
+            96% 0,
+            100% 20%,
+            94% 100%,
+            6% 100%,
+            0 20%
+        );
+
+    box-shadow:
+
+        0 0 20px rgba(163, 0, 24, 0.5),
+
+        inset 0 0 15px rgba(255, 255, 255, 0.08);
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+
+        opacity 0.8s ease,
+
+        transform 0.8s ease,
+
+        box-shadow 0.3s ease;
+
+}
+
+
+.forge-button.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.forge-button:hover {
+
+    box-shadow:
+
+        0 0 35px rgba(224, 0, 37, 0.8),
+
+        inset 0 0 20px rgba(255, 255, 255, 0.12);
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.button-text {
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.fang {
+
+    width: 0;
+
+    height: 0;
+
+    border-left:
+        10px solid transparent;
+
+    border-right:
+        10px solid transparent;
+
+    border-top:
+        24px solid #f2f2f2;
+
+    filter:
+        drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+
+}
+
+
+.fang-left {
+
+    transform:
+        rotate(10deg);
+
+}
+
+
+.fang-right {
+
+    transform:
+        rotate(-10deg);
+
+}
+
+
+/* ============================================================
+   STATUS
+============================================================ */
+
+.scene-status {
+
+    position: absolute;
+
+    z-index: 20;
+
+    bottom: 3%;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size:
+        0.65rem;
+
+    letter-spacing:
+        0.25em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* ============================================================
+   SKIP BUTTON
+============================================================ */
+
+.skip-button {
+
+    position: absolute;
+
+    z-index: 30;
+
+    top: 25px;
+
+    right: 30px;
+
+    padding: 10px 15px;
+
+    color:
+        rgba(255, 255, 255, 0.65);
+
+    background:
+        transparent;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    font-size:
+        0.65rem;
+
+    letter-spacing:
+        0.15em;
+
+}
+
+
+.skip-button:hover {
+
+    color:
+        white;
+
+    border-color:
+        var(--gold);
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .welcome-scene {
+
+        min-height:
+            620px;
+
+    }
+
+
+    .rider-scene {
+
+        transform:
+            scale(0.65);
+
+        bottom:
+            17%;
+
+    }
+
+
+    .welcome-title {
+
+        top:
+            10%;
+
+    }
+
+
+    .welcome-title h1 {
+
+        font-size:
+            2.2rem;
+
+    }
+
+
+    .small-title {
+
+        font-size:
+            0.5rem;
+
+        letter-spacing:
+            0.25em;
+
+    }
+
+
+    .title-description {
+
+        font-size:
+            0.7rem;
+
+    }
+
+
+    .forge-button {
+
+        min-width:
+            240px;
+
+        padding:
+            15px 20px;
+
+    }
+
+
+    .button-text {
+
+        font-size:
+            0.72rem;
+
+    }
+
+
+    .skip-button {
+
+        top:
+            15px;
+
+        right:
+            15px;
+
+    }
+
+  }
