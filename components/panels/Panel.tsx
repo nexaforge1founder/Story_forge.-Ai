@@ -1,19 +1,26 @@
 "use client";
 
 import React from "react";
-import type { FC, ReactNode, CSSProperties } from "react";
+import type { ReactNode, CSSProperties } from "react";
+import type { LucideIcon } from "lucide-react";
 import { tokens } from "@/lib/tokens";
 
 export interface PanelProps {
   title: string;
-  icon?: FC<{ size?: number; color?: string; strokeWidth?: number }>;
+  icon?: LucideIcon;
   right?: ReactNode;
   children?: ReactNode;
   style?: CSSProperties;
 }
 
 /** Shared docked-panel chrome used across the workspace, inspector, and console. */
-export function Panel({ title, icon: Icon, right, children, style }: PanelProps) {
+export function Panel({
+  title,
+  icon: Icon,
+  right,
+  children,
+  style,
+}: PanelProps) {
   return (
     <div
       className="ff-body"
@@ -38,8 +45,21 @@ export function Panel({ title, icon: Icon, right, children, style }: PanelProps)
           background: tokens.color.panelAlt,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
-          {Icon && <Icon size={13} color={tokens.color.textDim} strokeWidth={2} />}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 7,
+          }}
+        >
+          {Icon && (
+            <Icon
+              size={13}
+              color={tokens.color.textDim}
+              strokeWidth={2}
+            />
+          )}
+
           <span
             style={{
               fontSize: 11.5,
@@ -52,9 +72,19 @@ export function Panel({ title, icon: Icon, right, children, style }: PanelProps)
             {title}
           </span>
         </div>
+
         {right}
       </div>
-      <div style={{ flex: 1, overflow: "auto", minHeight: 0 }}>{children}</div>
+
+      <div
+        style={{
+          flex: 1,
+          overflow: "auto",
+          minHeight: 0,
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }
